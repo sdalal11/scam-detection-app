@@ -9,6 +9,9 @@ pipeline {
         
         // Build information
         BUILD_TAG = "${env.BUILD_NUMBER}-${env.GIT_COMMIT.take(7)}"
+        
+        // Add Docker to PATH for macOS
+        PATH = "/usr/local/bin:/Applications/Docker.app/Contents/Resources/bin:${env.PATH}"
     }
     
     stages {
