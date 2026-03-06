@@ -46,6 +46,16 @@ This application provides real-time detection of common scam patterns in phone c
   - ElevenLabs Speech-to-Text API
   - Google Gemini API (via Backboard)
 - **Async**: Python asyncio for non-blocking processing
+- **DevOps**: Docker, Jenkins CI/CD, Docker Hub
+
+## 🚀 Production Features
+
+✅ **Unit Tests** - Comprehensive test coverage with pytest  
+✅ **Docker Support** - Multi-stage build with health checks  
+✅ **CI/CD Pipeline** - Jenkins automated testing and deployment  
+✅ **Container Registry** - Docker Hub integration  
+
+See **[JENKINS.md](JENKINS.md)** for CI/CD setup and **[DOCKER.md](DOCKER.md)** for containerization.
 
 ## 📦 Prerequisites
 
@@ -114,6 +124,17 @@ python main.py
 The backend will be available at `http://localhost:8000`
 
 Health check: http://localhost:8000/health
+
+### 2b. Alternative: Run with Docker
+
+See **[DOCKER.md](DOCKER.md)** for complete Docker setup instructions.
+
+Quick start:
+```bash
+cd backend
+docker build -t scam-detection-api:latest .
+docker run -d --name scam-detection-api --env-file .env -p 8000:8000 scam-detection-api:latest
+```
 
 ### 3. Open Frontend
 
