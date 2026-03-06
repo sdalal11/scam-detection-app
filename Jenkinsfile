@@ -43,14 +43,14 @@ pipeline {
                 dir('backend') {
                     sh '''
                         . .venv/bin/activate
-                        python -m pytest -v --cov=. --cov-report=xml --cov-report=html
+                        python -m pytest -v --cov=. --cov-report=xml --cov-report=html --junitxml=test-results/junit.xml
                     '''
                 }
             }
             post {
                 always {
                     // Publish test results
-                    junit allowEmptyResults: true, testResults: 'backend/test-results/*.xml'
+                    junit allowEmptyResults: true, testResults: 'backend/test-results/junit.xml'
                     
                     // Publish coverage report
                     publishHTML([
